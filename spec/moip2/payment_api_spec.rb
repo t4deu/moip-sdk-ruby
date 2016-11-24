@@ -73,4 +73,73 @@ describe Moip2::PaymentApi do
       expect(created_payment).to be_a(Moip2::Resource::Payment)
     end
   end
+
+  describe '#show' do
+    let(:payment) do
+      VCR.use_cassette("show_payment") do
+        payment_api.show("PAY-CRUP19YU2VE1")
+      end
+    end
+
+    it "returns a payment" do
+      expect(payment["id"]).to eq("PAY-CRUP19YU2VE1")
+    end
+
+    context "when payment not found" do
+      let(:payment) do
+        VCR.use_cassette("show_payment_not_found") do
+          payment_api.show("PAY-MY-BILLS")
+        end
+      end
+
+      it "raises a NotFound" do
+        expect { payment }.to raise_error Moip2::NotFoundError
+      end
+    end
+  end
+
+  describe '#capture' do
+    let(:captured_payment) do
+      VCR.use_cassette("capture_payment") do
+        payment_api.capture("PAY-CRUP19YU2VE1")
+      end
+    end
+
+    it "captures the payment" do
+      create_pre_authorized
+      expect(captured_payment["id"]).to eq("PAY-CRUP19YU2VE1")
+      expect(captured_payment).to
+    end
+
+    def create_pre_authorized
+      VCR.use_cassette("create_pre_authorized_payment") do
+        payment_api.create("ORD-UEK2XGEXNWL9", {
+          delayCapture: true,
+          installmentCount: 1,
+          fundingInstrument: {
+            method: "CREDIT_CARD",
+            creditCard: {
+              expirationMonth: 05,
+              expirationYear: 18,
+              number: "4012001038443335",
+              cvc: "123",
+              holder: {
+                fullname: "Jose Portador da Silva",
+                birthdate: "1988-12-30",
+                taxDocument: {
+                  type: "CPF",
+                  number: "33333333333"
+                },
+                phone: {
+                  countryCode: "55",
+                  areaCode: "11",
+                  number: "66778899"
+                }
+              }
+            }
+          }
+        })
+      end
+    end
+  end
 end

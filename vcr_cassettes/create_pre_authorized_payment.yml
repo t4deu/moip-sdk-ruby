@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/orders/ORD-UEK2XGEXNWL9/payments
+    body:
+      encoding: UTF-8
+      string: '{"delayCapture":true,"installmentCount":1,"fundingInstrument":{"method":"CREDIT_CARD","creditCard":{"expirationMonth":5,"expirationYear":18,"number":"4012001038443335","cvc":"123","holder":{"fullname":"Jose
+        Portador da Silva","birthdate":"1988-12-30","taxDocument":{"type":"CPF","number":"33333333333"},"phone":{"countryCode":"55","areaCode":"11","number":"66778899"}}}}}'
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Thu, 24 Nov 2016 13:39:21 GMT
+      Server:
+      - Apache
+      Status:
+      - 400 Bad Request
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgIEV0YdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGAkWVVNBETpMGV8QXAdKcVBPb0pJAEgMVgwQRRdJNixrZxlGTVIZARtXSgEFBFpTVVUcUQ9TFBpSBgUADFUJWFdVAQIHAFBXGh9WBQ0RUmw=
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '143'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJlcnJvcnMiOlt7ImNvZGUiOiJQQVktOTk5IiwicGF0aCI6ImZ1bmRpbmdJ
+        bnN0cnVtZW50LmNyZWRpdENhcmQiLCJkZXNjcmlwdGlvbiI6IkrDoSBleGlz
+        dGUgdW0gcGFnYW1lbnRvIHJlYWxpemFkbyBjb20gY2FydMOjbyBkZSBjcsOp
+        ZGl0byJ9XX0=
+    http_version: 
+  recorded_at: Thu, 24 Nov 2016 13:39:21 GMT
+recorded_with: VCR 2.9.3

@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://01010101010101010101010101010101:ABABABABABABABABABABABABABABABABABABABAB@sandbox.moip.com.br/v2/payments/PAY-CRUP19YU2VE1/capture
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Thu, 24 Nov 2016 13:45:43 GMT
+      Server:
+      - Apache
+      Status:
+      - 400 Bad Request
+      X-Newrelic-App-Data:
+      - PxQFUlBXAQoTV1VaDgIEV0YdFGQHBDcQUQxLA1tMXV1dORYzVBJHNQFUZAQUFVFQVThOFAVtGBYFSFtWDBIQPh8ZUQZFZBtRUhVNFEMEE0o0eWQ1T0EUAx5UTVIZAgRRVgAOC05UT0AFAAtbAAANAQcGDlFVAgZQRhpRAAoQXW4=
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '138'
+      X-Content-Type-Options:
+      - nosniff
+      Vary:
+      - Accept-Encoding,Origin
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJlcnJvcnMiOlt7ImNvZGUiOiJQQVktOTk5IiwicGF0aCI6InBheW1lbnQu
+        c3RhdHVzIiwiZGVzY3JpcHRpb24iOiJTb21lbnRlIMOpIHBvc3PDrXZlbCBj
+        YXB0dXJhciBwYWdhbWVudG9zIGNvbSBzdGF0dXMgUFJFX0FVVEhPUklaRUQi
+        fV19
+    http_version: 
+  recorded_at: Thu, 24 Nov 2016 13:45:43 GMT
+recorded_with: VCR 2.9.3
