@@ -1,7 +1,6 @@
 module Moip2
 
   class Response < SimpleDelegator
-    attr_reader :resp
 
     def initialize(resp, json)
       @json = json
@@ -15,6 +14,10 @@ module Moip2
 
     def client_error?
       (400..499).include? @resp.code.to_i
+    end
+
+    def response
+      @resp
     end
 
     def raw
