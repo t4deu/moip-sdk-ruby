@@ -19,6 +19,10 @@ module Moip2
       Resource::Customer.new client, client.post(base_path, customer)
     end
 
+
+    def add_credit_card(customer_id, card)
+      Resource::CreditCard.new client, client.post("#{base_path}/#{customer_id}/fundinginstruments", card)
+    end
   end
 
 end
