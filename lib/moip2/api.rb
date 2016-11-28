@@ -7,6 +7,10 @@ module Moip2
       @client = client
     end
 
+    def account
+      Moip2::AccountApi.new(client)
+    end
+
     def order
       Moip2::OrderApi.new(client)
     end
