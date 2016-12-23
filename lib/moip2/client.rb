@@ -4,7 +4,7 @@ module Moip2
     include HTTParty
     # Setting a default timeout for all HTTP calls
     default_timeout 180
-    
+
     attr_reader :env, :auth, :uri
 
     def initialize(env = :sandbox, auth = nil, opts = {})
