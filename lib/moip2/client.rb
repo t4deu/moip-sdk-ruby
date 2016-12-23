@@ -2,6 +2,8 @@ module Moip2
 
   class Client
     include HTTParty
+    # Setting a default timeout for all HTTP calls
+    default_timeout 180
 
     attr_reader :env, :auth, :uri
 
