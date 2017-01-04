@@ -35,6 +35,9 @@ module Moip2
       Moip2::KeysApi.new(client)
     end
 
+    def transfer
+      Moip2::TransferApi.new(client)
+    end
   end
 
 end
